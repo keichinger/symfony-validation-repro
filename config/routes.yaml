@@ -1,3 +1,7 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+entity_a.add:
+    path: /
+    controller: App\Controller\EntityAController::add
