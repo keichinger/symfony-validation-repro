@@ -55,7 +55,7 @@ class EntityBForm extends AbstractType
                         $groups[] = "required_field_b";
                     }
 
-                    dump("EntityBForm Groups:", $groups);
+                    dump("EntityBForm Groups: " . implode(", ", $groups));
 
                     return $groups;
                 },

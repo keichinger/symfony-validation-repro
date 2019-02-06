@@ -86,7 +86,7 @@ class EntityB
      */
     public function validateRequiredFields (ExecutionContextInterface $executionContext) : void
     {
-        dump("EntityB called with validation group:", $executionContext->getGroup());
+        dump("EntityB called with validation group: " . $executionContext->getGroup());
 
         // do some advanced validation logic based on the validation groups
         // ...

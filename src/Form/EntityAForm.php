@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\EntityA;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EntityAForm extends AbstractType
@@ -29,6 +30,14 @@ class EntityAForm extends AbstractType
         $resolver
             ->setDefaults([
                 "data_class" => EntityA::class,
+                "validation_groups" => function (FormInterface $form)
+                {
+                    $groups = ["Default", "required"];
+
+                    dump("EntityAForm validation groups: " . implode(", ", $groups));
+
+                    return $groups;
+                },
             ]);
     }
 }

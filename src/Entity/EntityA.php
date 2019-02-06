@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity()
@@ -78,5 +79,18 @@ class EntityA
     public function setEntityB (?EntityB $entityB) : void
     {
         $this->entityB = $entityB;
+    }
+
+    /**
+     * @Assert\Callback()
+     *
+     * @param ExecutionContextInterface $executionContext
+     */
+    public function validateSomethingImportant (ExecutionContextInterface $executionContext) : void
+    {
+        dump("EntityA called with validation group: " . $executionContext->getGroup());
+
+        // do some advanced validation logic based on the validation groups
+        // ...
     }
 }
